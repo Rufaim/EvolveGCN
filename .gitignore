@@ -1,0 +1,6 @@
+# dataset
+*.csv
+
+# Python
+*.pyc
+
