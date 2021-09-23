@@ -33,4 +33,4 @@ class GCNSkipLayer(tf.keras.layers.Layer):
         adj, nodes, skip_input = inputs
         kernel_branch = tf.matmul(tf.sparse.sparse_dense_matmul(adj,nodes),self.kernel_nodes)
         skip_branch = tf.matmul(skip_input,self.kernel_skip)
-        return kernel_branch + skip_branch
+        return self.activation(kernel_branch + skip_branch)

@@ -24,4 +24,4 @@ class GCNLayer(tf.keras.layers.Layer):
 
     def call(self, inputs: Tuple[tf.SparseTensor,tf.Tensor], training=None, mask=None):
         adj, nodes = inputs
-        return tf.matmul(tf.sparse.sparse_dense_matmul(adj,nodes),self.kernel)
+        return self.activation(tf.matmul(tf.sparse.sparse_dense_matmul(adj,nodes),self.kernel))

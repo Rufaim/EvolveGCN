@@ -16,6 +16,6 @@ class GCNTwoLayersSkipConnection(tf.keras.Model):
         adj, nodes = inputs
         x = self.layer_gcn([adj,nodes])
         if self.dropout is not None:
-            x = self.dropout(x)
+            x = self.dropout(x, training=training)
         x = self.layer_gcn_skip([adj,x,nodes])
         return x
