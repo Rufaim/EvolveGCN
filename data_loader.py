@@ -73,7 +73,7 @@ class EllipticDatasetLoader(object):
     def test_batch_iterator(self):
         for i in range(len(self.test_graphs)):
             g = self.test_graphs[i]
-            n, t, adj = self.test_graphs[i]
+            n, t, adj = self.test_triples[i]
             yield g, n, t, adj
 
     def train_batch_iterator(self):
